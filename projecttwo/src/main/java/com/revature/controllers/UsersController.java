@@ -45,5 +45,16 @@ public class UsersController {
 		if(u == null ) return new ResponseEntity<DhalUsers>(HttpStatus.NO_CONTENT);
 		return new ResponseEntity<DhalUsers>(u, HttpStatus.OK);
 	}
-
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<DhalUsers> findByUsername(@RequestBody DhalUsers loginInfo){
+		System.out.println(loginInfo.toString());
+		DhalUsers user = service.login(loginInfo);
+		if (user != null) {
+			user.setPassword("");
+			return new ResponseEntity<DhalUsers>(user, HttpStatus.OK);
+		}
+		return new ResponseEntity<DhalUsers>(HttpStatus.UNAUTHORIZED);
+	}
+	
 }
