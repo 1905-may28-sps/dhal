@@ -33,11 +33,11 @@ public class DhalRatings {
 	private double rating;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="rate_id")
+	@JoinColumn(name="commentRate_id")
 	private DhalComments commentRateId;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="rate_id")
+	@JoinColumn(name="trackRate_id")
 	private DhalTrackRatings trackRateId;
 	
 	public DhalRatings() {}

@@ -38,7 +38,7 @@ public class DhalComments {
 	@Column(name="comment_s", nullable=false)
 	private String commentS;
 	
-	@Column(name="rate_id", nullable=false)
+	@Column(name="commentRate_id", nullable=false)
 	private int rateId;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
