@@ -29,14 +29,14 @@ public class DhalTrackRatings {
 	@GeneratedValue(generator="dhal_track_ratings_trigger", strategy=GenerationType.SEQUENCE)
 	private int trackId;
 	
-	@Column(name="rate_id", nullable=false)
+	@Column(name="trackRate_id", nullable=false)
 	private int rateId;
 	
 	@Column(name="rater_id", nullable=false)
 	private int raterId;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name="track_id")
+	@JoinColumn(name="trend_id")
 	private DhalTrending type;
 
 	public DhalTrackRatings() {}
