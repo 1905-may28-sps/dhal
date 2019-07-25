@@ -32,7 +32,7 @@ public class PlaylistsController {
 		return new ResponseEntity<DhalPlaylists>(u, HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value = "/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/playlists", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<DhalPlaylists>> findAll() {
 		List<DhalPlaylists> dhalPlaylists = service.getAll();
 		if(dhalPlaylists == null || dhalPlaylists.size() == 0) return new ResponseEntity<List<DhalPlaylists>>(HttpStatus.NO_CONTENT);
