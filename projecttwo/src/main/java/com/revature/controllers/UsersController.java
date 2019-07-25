@@ -17,7 +17,7 @@ import com.revature.models.DhalUsers;
 import com.revature.service.UsersService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 public class UsersController {
 
 	@Autowired
@@ -25,6 +25,7 @@ public class UsersController {
 
 	@RequestMapping(value = "/users", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<DhalUsers> add(@RequestBody DhalUsers user) {
+		System.out.println(user);
 		DhalUsers u = service.add(user);
 		if (u == null)
 			return new ResponseEntity<DhalUsers>(HttpStatus.CONFLICT);
@@ -33,12 +34,15 @@ public class UsersController {
 
 	@RequestMapping(value = "/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<DhalUsers>> findAll() {
-		return new ResponseEntity<List<DhalUsers>>(service.getAll(), HttpStatus.OK);
+		List<DhalUsers> dhalUsers = service.getAll();
+		if(dhalUsers == null || dhalUsers.size() == 0) return new ResponseEntity<List<DhalUsers>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<DhalUsers>>(dhalUsers, HttpStatus.OK);
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/users/username={name}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<DhalUsers> findByUsername(@PathVariable String name) {
 		DhalUsers u = service.findByUsername(name);
+		if(u == null ) return new ResponseEntity<DhalUsers>(HttpStatus.NO_CONTENT);
 		return new ResponseEntity<DhalUsers>(u, HttpStatus.OK);
 	}
 

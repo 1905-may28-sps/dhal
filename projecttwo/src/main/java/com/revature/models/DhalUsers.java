@@ -32,6 +32,9 @@ public class DhalUsers {
 	@Column(name="email", unique=true, nullable=false)
 	private String email;
 	
+	@Column(name="username", nullable=false)
+	private String username;
+	
 	@Column(name="password", nullable=false)
 	private String password;
 	
@@ -52,11 +55,12 @@ public class DhalUsers {
 	
 	public DhalUsers() {}
 
-	public DhalUsers(int id, String email, String password, String firstName, String lastName, DhalComments authorId,
-			DhalTrackRatings raterId) {
+	public DhalUsers(int id, String email, String username, String password, String firstName, String lastName,
+			DhalComments authorId, DhalTrackRatings raterId) {
 		super();
 		this.id = id;
 		this.email = email;
+		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -78,6 +82,14 @@ public class DhalUsers {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -119,6 +131,15 @@ public class DhalUsers {
 	public void setRaterId(DhalTrackRatings raterId) {
 		this.raterId = raterId;
 	}
+
+	@Override
+	public String toString() {
+		return "DhalUsers [id=" + id + ", email=" + email + ", username=" + username + ", password=" + password
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", authorId=" + authorId + ", raterId="
+				+ raterId + "]";
+	}
+
+
 	
 	
 	

@@ -9,5 +9,4 @@ import com.revature.models.DhalUsers;
 @Repository
 public interface UsersRepository extends JpaRepository<DhalUsers, Integer>{
 	DhalUsers findByUsernameIgnoreCase(String name);
-	
 }
