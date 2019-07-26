@@ -30,7 +30,6 @@ public class TrendingService {
 	}
 
 	public DhalTrending findByTrendId(int id) {
-		System.out.println("in find by username");
 		return trendRepo.findByTrendId(id);
 	}
 

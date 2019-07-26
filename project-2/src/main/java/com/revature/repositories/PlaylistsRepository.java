@@ -11,5 +11,8 @@ public interface PlaylistsRepository extends JpaRepository<DhalPlaylists, Intege
 	
 	DhalPlaylists findByPlaylistId(int id);
 
+	DhalPlaylists findByOwnerId(int id);
+
+	DhalPlaylists findByName(String name);
 	
 }

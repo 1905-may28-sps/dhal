@@ -40,10 +40,25 @@ public class PlaylistsController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/playlists/playlistId={id}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<DhalPlaylists> findByUsername(@PathVariable int id) {
+	public ResponseEntity<DhalPlaylists> findByPlaylistId(@PathVariable int id) {
 		DhalPlaylists u = service.findByPlaylistId(id);
 		if(u == null ) return new ResponseEntity<DhalPlaylists>(HttpStatus.NO_CONTENT);
 		return new ResponseEntity<DhalPlaylists>(u, HttpStatus.OK);
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/playlists/ownerId={id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<DhalPlaylists> findByOwnerId(@PathVariable int id) {
+		DhalPlaylists u = service.findByOwnerId(id);
+		if(u == null ) return new ResponseEntity<DhalPlaylists>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<DhalPlaylists>(u, HttpStatus.OK);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/playlists/name={name}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<DhalPlaylists> findByName(@PathVariable String name) {
+		DhalPlaylists u = service.findByName(name);
+		if(u == null ) return new ResponseEntity<DhalPlaylists>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<DhalPlaylists>(u, HttpStatus.OK);
+	}
+
 
 }

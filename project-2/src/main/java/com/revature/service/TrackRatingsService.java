@@ -30,7 +30,6 @@ public class TrackRatingsService {
 	}
 
 	public DhalTrackRatings findByRateId(double id) {
-		System.out.println("in find by username");
 		return trackRepo.findByRateId(id);
 	}
 

@@ -29,7 +29,6 @@ public class UsersService {
 	}
 
 	public DhalUsers findByUsername(String username) {
-		System.out.println("in find by username");
 		return userRepo.findByUsernameIgnoreCase(username);
 	}
 

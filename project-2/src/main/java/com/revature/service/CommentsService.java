@@ -30,7 +30,6 @@ public class CommentsService {
 	}
 
 	public DhalComments findByCommentsId(int id) {
-		System.out.println("in find by username");
 		return commentsRepo.findByCommentsId(id);
 	}
 

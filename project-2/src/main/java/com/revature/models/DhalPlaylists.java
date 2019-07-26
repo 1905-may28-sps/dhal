@@ -35,29 +35,37 @@ public class DhalPlaylists {
 	@Column(name="comment_id", nullable=false)
 	private int commentId;
 	
+	@Column(name="owner_id", nullable=false)
+	private int ownerId;
+	
+	@Column(name="name", nullable=false)
+	private String name;
+	
 
 	public DhalPlaylists() {}
 
 
-	public DhalPlaylists(int playlistId, int trackId, int commentId) {
+	public DhalPlaylists(int playlistId, int trackId, int commentId, int ownerId, String name) {
 		super();
 		this.playlistId = playlistId;
 		this.trackId = trackId;
 		this.commentId = commentId;
+		this.ownerId = ownerId;
+		this.name = name;
 	}
 
 
-	public int getTradckIid() {
-		return trackId;
+	public int getPlaylistId() {
+		return playlistId;
 	}
 
 
-	public void setTradckIid(int playlistId) {
+	public void setPlaylistId(int playlistId) {
 		this.playlistId = playlistId;
 	}
 
 
-	public double getTrackId() {
+	public int getTrackId() {
 		return trackId;
 	}
 
@@ -67,7 +75,7 @@ public class DhalPlaylists {
 	}
 
 
-	public double getCommentId() {
+	public int getCommentId() {
 		return commentId;
 	}
 
@@ -75,10 +83,27 @@ public class DhalPlaylists {
 	public void setCommentId(int commentId) {
 		this.commentId = commentId;
 	}
-	
-	
-	
-	
+
+
+	public int getOwnerId() {
+		return ownerId;
+	}
+
+
+	public void setOwnerId(int ownerId) {
+		this.ownerId = ownerId;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 
 	
 }

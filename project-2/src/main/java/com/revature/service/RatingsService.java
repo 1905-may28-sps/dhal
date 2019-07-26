@@ -30,7 +30,6 @@ public class RatingsService {
 	}
 
 	public DhalRatings findByRating(double rating) {
-		System.out.println("in find by username");
 		return ratingsRepo.findByRating(rating);
 	}
 

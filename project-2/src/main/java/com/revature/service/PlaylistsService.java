@@ -30,8 +30,18 @@ public class PlaylistsService {
 	}
 
 	public DhalPlaylists findByPlaylistId(int id) {
-		System.out.println("in find by username");
+	
 		return playlistsRepo.findByPlaylistId(id);
+	}
+	
+	public DhalPlaylists findByName(String name) {
+
+		return playlistsRepo.findByName(name);
+	}
+	
+	public DhalPlaylists findByOwnerId(int id) {
+
+		return playlistsRepo.findByOwnerId(id);
 	}
 
 	public DhalPlaylists update(DhalPlaylists u) {
