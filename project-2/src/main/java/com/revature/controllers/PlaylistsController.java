@@ -59,6 +59,13 @@ public class PlaylistsController {
 		if(u == null ) return new ResponseEntity<DhalPlaylists>(HttpStatus.NO_CONTENT);
 		return new ResponseEntity<DhalPlaylists>(u, HttpStatus.OK);
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/ownerPlaylists/ownerId={id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<DhalPlaylists>> findListByOwnerId(@PathVariable int id) {
+		List<DhalPlaylists> u =  service.findListByOwnerId(id);
+		if(u == null || u.size() == 0 ) return new ResponseEntity<List<DhalPlaylists>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<DhalPlaylists>>(u, HttpStatus.OK);
+	}
 
 
 }

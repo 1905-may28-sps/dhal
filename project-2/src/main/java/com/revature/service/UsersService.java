@@ -35,5 +35,12 @@ public class UsersService {
 	public DhalUsers update(DhalUsers u) {
 		return null;
 	}
+	
+	public DhalUsers login(DhalUsers loginInfo) {
+		DhalUsers user = userRepo.findByUsernameIgnoreCase(loginInfo.getUsername());
+		if (user != null && user.getPassword().equals(loginInfo.getPassword()))
+			return user;
+		return null;
+	}
 
 }

@@ -41,17 +41,21 @@ public class DhalPlaylists {
 	@Column(name="name", nullable=false)
 	private String name;
 	
+	@Column(name="user_playlist_id", nullable=false)
+	private int userPlaylistId;
+	
 
 	public DhalPlaylists() {}
 
 
-	public DhalPlaylists(int playlistId, int trackId, int commentId, int ownerId, String name) {
+	public DhalPlaylists(int playlistId, int trackId, int commentId, int ownerId, String name, int userPlaylistId) {
 		super();
 		this.playlistId = playlistId;
 		this.trackId = trackId;
 		this.commentId = commentId;
 		this.ownerId = ownerId;
 		this.name = name;
+		this.userPlaylistId = userPlaylistId;
 	}
 
 
@@ -103,6 +107,18 @@ public class DhalPlaylists {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
+	public int getUserPlaylistId() {
+		return userPlaylistId;
+	}
+
+
+	public void setUserPlaylistId(int userPlaylistId) {
+		this.userPlaylistId = userPlaylistId;
+	}
+
+
 
 
 	

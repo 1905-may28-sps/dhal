@@ -43,6 +43,10 @@ public class PlaylistsService {
 
 		return playlistsRepo.findByOwnerId(id);
 	}
+	
+	public List<DhalPlaylists> findListByOwnerId(int id){
+		return playlistsRepo.findListByOwnerId(id);
+	}
 
 	public DhalPlaylists update(DhalPlaylists u) {
 		return null;
