@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -44,11 +46,25 @@ public class DhalPlaylists {
 	@Column(name="user_playlist_id", nullable=false)
 	private int userPlaylistId;
 	
+//	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+//	@JoinColumn(name="comment_id")
+//	private DhalComments id;
+//	
+//	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+//	@JoinTable(name="user_comments",
+//	joinColumns=@JoinColumn(name="user_playlist_id"),
+//	inverseJoinColumns=@JoinColumn(name="comment_id"))
+//	private List<DhalComments> userComments;
+//	
+//	@OneToMany(mappedBy="playlist", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+//	private List<DhalComments> comment;
+//	
 
 	public DhalPlaylists() {}
 
 
-	public DhalPlaylists(int playlistId, int trackId, int commentId, int ownerId, String name, int userPlaylistId) {
+	public DhalPlaylists(int playlistId, int trackId, int commentId, int ownerId, String name, int userPlaylistId,
+			DhalComments id, List<DhalComments> userComments, List<DhalComments> comment) {
 		super();
 		this.playlistId = playlistId;
 		this.trackId = trackId;
@@ -56,6 +72,7 @@ public class DhalPlaylists {
 		this.ownerId = ownerId;
 		this.name = name;
 		this.userPlaylistId = userPlaylistId;
+	
 	}
 
 
@@ -117,6 +134,36 @@ public class DhalPlaylists {
 	public void setUserPlaylistId(int userPlaylistId) {
 		this.userPlaylistId = userPlaylistId;
 	}
+//
+//
+//	public DhalComments getId() {
+//		return id;
+//	}
+//
+//
+//	public void setId(DhalComments id) {
+//		this.id = id;
+//	}
+//
+//
+//	public List<DhalComments> getUserComments() {
+//		return userComments;
+//	}
+//
+//
+//	public void setUserComments(List<DhalComments> userComments) {
+//		this.userComments = userComments;
+//	}
+//
+//
+//	public List<DhalComments> getComment() {
+//		return comment;
+//	}
+
+
+//	public void setComment(List<DhalComments> comment) {
+//		this.comment = comment;
+//	}
 
 
 

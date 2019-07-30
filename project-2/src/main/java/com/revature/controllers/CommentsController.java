@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.DhalComments;
+import com.revature.models.DhalPlaylists;
 import com.revature.service.CommentsService;
 
 @RestController
@@ -44,6 +46,15 @@ public class CommentsController {
 		DhalComments u = service.findByCommentsId(id);
 		if(u == null ) return new ResponseEntity<DhalComments>(HttpStatus.NO_CONTENT);
 		return new ResponseEntity<DhalComments>(u, HttpStatus.OK);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/comments/playlist/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<DhalComments>> findByUserComment(@PathVariable int id) {
+		DhalPlaylists p = new DhalPlaylists();
+		p.setPlaylistId(id);
+		List<DhalComments> u = service.findByPlaylist(p);
+		if(u == null ) return new ResponseEntity<List<DhalComments>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<DhalComments>>(u, HttpStatus.OK);
 	}
 
 }

@@ -43,30 +43,31 @@ public class DhalComments {
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="comment_id")
-	private DhalPlaylists commentId;
+	private DhalPlaylists playlist;
 	
 
 	public DhalComments() {}
 
 
-	public DhalComments(int commentsId, int authorId, String postDate, String commentS, int rateId, DhalPlaylists commentId) {
+	public DhalComments(int commentsId, int authorId, String postDate, String commentS, int rateId,
+			DhalPlaylists playlist) {
 		super();
 		this.commentsId = commentsId;
 		this.authorId = authorId;
 		this.postDate = postDate;
 		this.commentS = commentS;
 		this.rateId = rateId;
-		this.commentId = commentId;
+//		this.playlist = playlist;
 	}
 
 
-	public int getId() {
+	public int getCommentsId() {
 		return commentsId;
 	}
 
 
-	public void setId(int id) {
-		this.commentsId = id;
+	public void setCommentsId(int commentsId) {
+		this.commentsId = commentsId;
 	}
 
 
@@ -110,15 +111,16 @@ public class DhalComments {
 	}
 
 
-	public DhalPlaylists getCommentId() {
-		return commentId;
-	}
+//	public DhalPlaylists getPlaylist() {
+//		return playlist;
+//	}
+//
+//
+//	public void setPlaylist(DhalPlaylists playlist) {
+//		this.playlist = playlist;
+//	}
+//
 
-
-	public void setCommentId(DhalPlaylists commentId) {
-		this.commentId = commentId;
-	}
-	
 	
 	
 	
